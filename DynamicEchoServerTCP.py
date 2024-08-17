@@ -79,6 +79,8 @@ class EchoServerTCP():
                         dead = True
                         os.remove("serverPrivateKey.pem")
                         os.remove("serverPublicKey.pem")
+                        if os.path.isfile("clientPublicKey.pem") == True:
+                            os.remove("clientPublicKey.pem")
 
             clientSocket.close()
             

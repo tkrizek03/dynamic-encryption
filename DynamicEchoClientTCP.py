@@ -39,6 +39,8 @@ try:
 except ConnectionResetError as Error:
     os.remove("clientPrivateKey.pem")
     os.remove("clientPublicKey.pem")
+    if os.path.isfile("serverPublicKey.pem") == True:
+        os.remove("serverPublicKey.pem")
     print("The server was forcibly closed by the remote host.")
 
 #Send the data to the server
@@ -56,6 +58,8 @@ try:
     print("Received - %s" % theEcho)
     os.remove("clientPrivateKey.pem")
     os.remove("clientPublicKey.pem")
+    if os.path.isfile("serverPublicKey.pem") == True:
+        os.remove("serverPublicKey.pem")
     clientSocket.close()
     print("Client Socket closed.")
 except OSError as ConnectionReset:
